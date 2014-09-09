@@ -9,10 +9,15 @@ http://pubannotation.org/docs/sourcedb/PubMed/sourceid/10022882/
 http://pubannotation.org/docs/sourcedb/PubMed/sourceid/10022882/spans/200-710
 
 
-使い方
+## 使い方
 ```js
-$('.linkSpace').linkToSelectedSpan('.text')
+$('.text').linkToSelectedSpan('.linkSpace')
 ```
 
 - `.text`の文字列が選択されると`.linkSpace`に文字列を書き込みます。
 - 選択を解除してもリンクは消しません。
+
+## メモ
+```html
+<td class="linkSpace"></td>
+```
