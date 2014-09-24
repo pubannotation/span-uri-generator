@@ -31,6 +31,13 @@ browserify src/linkToSelectedSpan.js -o jQuery.linkToSelectedSpan.js
 opes sample.html
 ```
 
+#### 動作確認テスト項目
+- 選択する
+    - 左側に、選択範囲の「開始位置-終了位置」が表示される
+    - 右側に、相対パスのリンクが表示される
+        - url/spans/1-10
+        - urlが/で終わっていなかったら/が追加される
+
 ## 使い方
 ```js
 $('.text').linkToSelectedSpan('.linkSpace')
