@@ -52,24 +52,18 @@ function triggerSelect(event) {
 }
 
 function createLinkSpaceContent($target) {
-    return $target
-        .append(
-            jQuery('<span>')
-            .addClass('range')
-        )
-        .append(
-            jQuery('<a>')
-            .addClass('link')
-        );
+    var template = `
+        <span class="range"></span>
+        <a class="link"></a>
+    `
+
+    return $target.append(template)
 }
 
 function updateLinkSpaceContent($target, select, url) {
-    return $target.find('.range')
-        .text(select)
-        .end()
-        .find('.link')
-        .text('<' + url + '>')
-        .attr('href', url);
+    var template = `<span class="range">${select}</span><a class="link" href="${url}">&lt;${url}&gt;</a>`;
+
+    $target[0].innerHTML = template;
 }
 
 function Selected($linkSpace) {
