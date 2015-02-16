@@ -6,9 +6,9 @@ main()
 
 function createLinkSpaceContent(element) {
     var template = `
-        <span class="range"></span>
-        <a class="link"></a>
-    `
+        <span class="message">
+            Select a part of text above to get its span-url.
+        </span>`
 
     return element.innerHTML = template
 }
