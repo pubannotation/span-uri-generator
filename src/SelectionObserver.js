@@ -12,14 +12,15 @@ export default function() {
             if (selection.anchorNode.nodeName !== '#text') return
             if (selection.focusNode.nodeName !== '#text') return
 
-            o.set(toSelectString(getSelectedPosition(selection)))
+            o.set(getSelectedPosition(selection))
         }
     }
 }
 
 function toLength(node) {
-    return node.nodeName === "#text" ? node.length :
-        node.nodeName === "BR" ? 1 :
+    return node.nodeName === '#text' ? node.length :
+        node.nodeName === 'BR' ? 1 :
+        node.nodeName === 'SPAN' ? node.innerHTML.length :
         0
 }
 
@@ -59,18 +60,4 @@ function getSelectedPosition(selection) {
         fpos = getPosition(selection, 'focus')
 
     return toBeginEnd(apos, fpos)
-}
-
-function toSelectString(select) {
-    return select.begin + '-' + select.end
-}
-
-function triggerSelect(observ, event) {
-    var selection = window.getSelection()
-
-    if (selection.isCollapsed) return
-    if (selection.anchorNode.nodeName !== '#text') return
-    if (selection.focusNode.nodeName !== '#text') return
-
-    observ.set(toSelectString(getSelectedPosition(selection)))
 }

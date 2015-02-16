@@ -20,14 +20,18 @@ function updateLinkSpaceContent(element, select, url) {
     element.innerHTML = template
 }
 
+function toSelectString(select) {
+    return select.begin + '-' + select.end
+}
+
 function selected(linkSpace, select) {
-    var parsed = url.parse(location.href)
+    var parsed = url.parse(location.href),
+        selectString = toSelectString(select),
+        pathname = parsed.pathname.replace(/spans\/\d+-\d+/, '')
 
-    parsed.pathname = pathJoin(parsed.pathname, `spans/${select}`)
+    parsed.pathname = pathJoin(pathname, `spans/${selectString}`)
 
-    var newUrl = url.format(parsed)
-
-    updateLinkSpaceContent(linkSpace, select, newUrl)
+    updateLinkSpaceContent(linkSpace, selectString, url.format(parsed))
 }
 
 function bindEvent($target, linkSpace) {
@@ -41,15 +45,15 @@ function bindEvent($target, linkSpace) {
 
 function linkToSelectedSpan(selector) {
     var $target = this,
-        linkSpaces = document.querySelectorAll(selector)
+        linkSpace = document.querySelector(selector)
 
-    if (linkSpaces.length === 0) {
+    if (!linkSpace) {
         console.warn('no element is found. selector: ', selector)
         return
     }
 
-    createLinkSpaceContent(linkSpaces[0])
-    bindEvent($target, linkSpaces[0])
+    createLinkSpaceContent(linkSpace)
+    bindEvent($target, linkSpace)
 
     console.log('start to observe element.')
     return this
