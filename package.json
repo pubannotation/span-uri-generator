@@ -1,0 +1,29 @@
+{
+  "name": "linktoselectedspan",
+  "description": "Update an anchor according to the selection.",
+  "version": "0.0.1",
+  "author": "shigeru.nakajima <shigeru.nakajima@luxiar.com>",
+  "devDependencies": {
+    "browserify": "^8.1.3",
+    "watchify": "^2.3.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "pubannotation",
+    "selection",
+    "link"
+  ],
+  "license": "MIT",
+  "main": "jQuery.linkToSelectedSpan.js",
+  "repository": {
+    "type": "git",
+    "url": "git@developer.luxiar.jp:dbcls/linktoselectedspan.git"
+  },
+  "scripts": {
+    "build": "browserify src/linkToSelectedSpan.js -o jQuery.linkToSelectedSpan.js",
+    "test": "open sample.html",
+    "watch": "watchify src/linkToSelectedSpan.js -o jQuery.linkToSelectedSpan.js"
+  }
+}

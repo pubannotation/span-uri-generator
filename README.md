@@ -23,7 +23,8 @@ jasmine-node test
 
 ### build
 ```
-browserify src/linkToSelectedSpan.js -o jQuery.linkToSelectedSpan.js
+npm install
+npm run build
 ```
 
 ### integration
