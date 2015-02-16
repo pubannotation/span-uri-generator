@@ -66,17 +66,15 @@ function updateLinkSpaceContent($target, select, url) {
     $target[0].innerHTML = template;
 }
 
-function Selected($linkSpace) {
-    return function(event, select) {
-        var url = pathJoin(location.href, 'spans/' + select);
-        updateLinkSpaceContent($linkSpace, select, url);
-    };
+function selected($linkSpace, event, select) {
+    var url = pathJoin(location.href, 'spans/' + select);
+    updateLinkSpaceContent($linkSpace, select, url);
 }
 
 function bindEvent($target, $linkSpace) {
     $target
         .on('click', triggerSelect)
-        .on('select', new Selected($linkSpace));
+        .on('select', (event, select) => selected($linkSpace, event, select));
 }
 
 function linkToSelectedSpan(selector) {
