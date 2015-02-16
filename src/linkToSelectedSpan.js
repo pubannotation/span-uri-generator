@@ -1,3 +1,4 @@
+import observ from 'observ'
 import pathJoin from './pathJoin'
 
 main()
@@ -50,15 +51,14 @@ function toSelectString(select) {
     return select.begin + '-' + select.end
 }
 
-function triggerSelect(event) {
+function triggerSelect(observ, event) {
     var selection = window.getSelection()
 
     if (selection.isCollapsed) return
     if (selection.anchorNode.nodeName !== '#text') return
     if (selection.focusNode.nodeName !== '#text') return
 
-    jQuery(event.target)
-        .trigger('select', toSelectString(getSelectedPosition(selection)))
+    observ.set(toSelectString(getSelectedPosition(selection)))
 }
 
 function createLinkSpaceContent($target) {
@@ -76,15 +76,18 @@ function updateLinkSpaceContent($target, select, url) {
     $target[0].innerHTML = template
 }
 
-function selected($linkSpace, event, select) {
+function selected($linkSpace, select) {
     var url = pathJoin(location.href, 'spans/' + select)
     updateLinkSpaceContent($linkSpace, select, url)
 }
 
 function bindEvent($target, $linkSpace) {
+    var select = observ('');
+
     $target
-        .on('click', triggerSelect)
-        .on('select', (event, select) => selected($linkSpace, event, select))
+        .on('click', (event) => triggerSelect(select, event))
+
+    select((select) => selected($linkSpace, select))
 }
 
 function linkToSelectedSpan(selector) {

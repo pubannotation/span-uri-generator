@@ -26,5 +26,8 @@
     "build": "browserify src/linkToSelectedSpan.js -t babelify -o jQuery.linkToSelectedSpan.js",
     "test": "open sample.html",
     "watch": "watchify src/linkToSelectedSpan.js -t babelify -o jQuery.linkToSelectedSpan.js"
+  },
+  "dependencies": {
+    "observ": "^0.2.0"
   }
 }
