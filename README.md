@@ -29,7 +29,7 @@ npm run build
 
 ### integration
 ```
-opes sample.html
+npm test
 ```
 
 #### 動作確認テスト項目
@@ -38,6 +38,10 @@ opes sample.html
     - 右側に、相対パスのリンクが表示される
         - url/spans/1-10
         - urlが/で終わっていなかったら/が追加される
+- クエリパラメーター付きURL
+    - クエリパラメーター`?hoge=aa&fugo=bbb`をつける
+    - 選択する
+    - `url/spans/1-10?hoge=aa&fugo=bbb`になる
 
 ## 使い方
 ```js

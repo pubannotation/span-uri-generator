@@ -1,3 +1,4 @@
+import url from 'url'
 import observ from 'observ'
 import pathJoin from './pathJoin'
 import SelectionObserver from './SelectionObserver'
@@ -20,9 +21,13 @@ function updateLinkSpaceContent(element, select, url) {
 }
 
 function selected(linkSpace, select) {
-    var url = pathJoin(location.href, 'spans/' + select)
+    var parsed = url.parse(location.href)
 
-    updateLinkSpaceContent(linkSpace, select, url)
+    parsed.pathname = pathJoin(parsed.pathname, `spans/${select}`)
+
+    var newUrl = url.format(parsed)
+
+    updateLinkSpaceContent(linkSpace, select, newUrl)
 }
 
 function bindEvent($target, linkSpace) {
