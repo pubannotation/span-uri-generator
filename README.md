@@ -46,6 +46,13 @@ npm test
     - クエリパラメーター`?hoge=aa&fugo=bbb`をつける
     - 選択する
     - `url/spans/1-10?hoge=aa&fugo=bbb`になる
+- http://pubannotation.org/projects/genia-medco-coref/docs/sourcedb/PubMed/sourceid/10022882/spans/849-1028
+    - 開発ツールで実行
+        - jQuery.linkToSelectedSpan.js
+        - $('.text').linkToSelectedSpan('.linkSpace')
+    - 選択したリンクで正しく開けること
+    - マークされた前後を選んで正しくひらけること
+    - マークされたspan内を選んで正しくひらけること
 
 ## 使い方
 ```js
