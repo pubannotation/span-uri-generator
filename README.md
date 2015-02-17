@@ -11,28 +11,34 @@ http://pubannotation.org/docs/sourcedb/PubMed/sourceid/10022882/spans/200-710
 ## 開発手順
 テストしやすいように一部(pathJoin)をモジュールにわけています。
 
+### setup
+```
+npm install
+```
+
 ### lint
 ```
-jshint */*.js
+npm run lint
 ```
 
 ### unti test
 ```
-jasmine-node test
+npm test
 ```
 
 ### build
 ```
-npm install
 npm run build
 ```
 
-### integration
+### integration test
 ```
-npm test
+npm open
 ```
 
 #### 動作確認テスト項目
+- 初期表示
+    - `Select a part of text above to get its span-url.`
 - 選択する
     - 左側に、選択範囲の「開始位置-終了位置」が表示される
     - 右側に、絶対パスのリンクが表示される
@@ -46,11 +52,13 @@ npm test
     - クエリパラメーター`?hoge=aa&fugo=bbb`をつける
     - 選択する
     - `url/spans/1-10?hoge=aa&fugo=bbb`になる
+
+### system test
 - http://pubannotation.org/projects/genia-medco-coref/docs/sourcedb/PubMed/sourceid/10022882/spans/849-1028
     - 開発ツールで実行
         - jQuery.linkToSelectedSpan.js
         - $('.text').linkToSelectedSpan('.linkSpace')
-    - 選択したリンクで正しく開けること
+    - 選択したリンクで正しく開けること
     - マークされた前後を選んで正しくひらけること
     - マークされたspan内を選んで正しくひらけること
 
@@ -61,8 +69,3 @@ $('.text').linkToSelectedSpan('.linkSpace')
 
 - `.text`の文字列が選択されると`.linkSpace`に文字列を書き込みます。
 - 選択を解除してもリンクは消しません。
-
-## メモ
-```html
-<td class="linkSpace"></td>
-```

@@ -11,7 +11,7 @@ function createLinkSpaceContent(element) {
             Select a part of text above to get its span-url.
         </span>`
 
-    return element.innerHTML = template
+    element.innerHTML = template
 }
 
 function updateLinkSpaceContent(element, select, url) {
