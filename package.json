@@ -1,6 +1,6 @@
 {
-  "name": "linktoselectedspan",
-  "description": "Update an anchor according to the selection.",
+  "name": "span-uri-generator",
+  "description": "A javascript to generate span URIs from text selection.",
   "version": "0.0.1",
   "author": "shigeru.nakajima <shigeru.nakajima@luxiar.com>",
   "dependencies": {
@@ -20,13 +20,14 @@
   "keywords": [
     "pubannotation",
     "selection",
-    "link"
+    "uri"
   ],
   "license": "MIT",
   "main": "jQuery.linkToSelectedSpan.js",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git@developer.luxiar.jp:dbcls/linktoselectedspan.git"
+    "url": "git@github.com:pubannotation/span-uri-generator.git"
   },
   "scripts": {
     "build": "browserify src/linkToSelectedSpan.js -t babelify -o jQuery.linkToSelectedSpan.js",
