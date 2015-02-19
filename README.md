@@ -1,4 +1,6 @@
-DBCLS向けです
+[PubAnnotation](http://pubannotation.org/) 用のjQueryプラグインです。
+
+例えば
 
 http://pubannotation.org/docs/sourcedb/PubMed/sourceid/10022882/
 
@@ -8,8 +10,15 @@ http://pubannotation.org/docs/sourcedb/PubMed/sourceid/10022882/
 
 http://pubannotation.org/docs/sourcedb/PubMed/sourceid/10022882/spans/200-710
 
+## 使い方
+```js
+$('.text').linkToSelectedSpan('.linkSpace')
+```
+
+- `.text`の文字列が選択されると`.linkSpace`にリンク文字列を書き込みます。
+- 選択を解除してもリンクは消しません。
+
 ## 開発手順
-テストしやすいように一部(pathJoin)をモジュールにわけています。
 
 ### setup
 ```
@@ -21,7 +30,7 @@ npm install
 npm run lint
 ```
 
-### unti test
+### unit test
 ```
 npm test
 ```
@@ -61,11 +70,3 @@ npm open
     - 選択したリンクで正しく開けること
     - マークされた前後を選んで正しくひらけること
     - マークされたspan内を選んで正しくひらけること
-
-## 使い方
-```js
-$('.text').linkToSelectedSpan('.linkSpace')
-```
-
-- `.text`の文字列が選択されると`.linkSpace`に文字列を書き込みます。
-- 選択を解除してもリンクは消しません。
