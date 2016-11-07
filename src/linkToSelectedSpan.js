@@ -15,7 +15,7 @@ function createLinkSpaceContent(element) {
 }
 
 function updateLinkSpaceContent(element, select, url) {
-    var template = `<span class="range">${select}</span><a class="link" href="${url}">&lt${url}&gt</a>`
+    var template = `<a class="link" href="${url}">&lt${url}&gt</a>`
 
     element.innerHTML = template
 }
