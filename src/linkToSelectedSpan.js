@@ -5,7 +5,7 @@ import SelectionObserver from './SelectionObserver'
 
 main()
 
-function createLinkSpaceContent(element) {
+function initLinkSpaceContent(element) {
     var template = `
         <span class="message">
             Select a part of text above to get its span-url.
@@ -37,8 +37,8 @@ function selected(linkSpace, select) {
 function bindEvent($target, linkSpace) {
     var observer = new SelectionObserver()
 
-    $target
-        .on('click', observer.handler)
+    $target.on('click', observer.handler)
+    $(document.body).on('mousedown', () => initLinkSpaceContent(linkSpace))
 
     observer.observable((select) => selected(linkSpace, select))
 }
@@ -52,7 +52,7 @@ function linkToSelectedSpan(selector) {
         return
     }
 
-    createLinkSpaceContent(linkSpace)
+    initLinkSpaceContent(linkSpace)
     bindEvent($target, linkSpace)
 
     console.log('start to observe element.')
