@@ -16,7 +16,7 @@ $('.text').linkToSelectedSpan('.linkSpace')
 ```
 
 - `.text`の文字列が選択されると`.linkSpace`にリンク文字列を書き込みます。
-- 選択を解除してもリンクは消しません。
+- 選択を解除すると、リンクを消し初期メッセージを表示します。
 
 ## 開発手順
 
@@ -42,17 +42,17 @@ npm run build
 
 ### integration test
 ```
-npm open
+npm run open
 ```
 
 #### 動作確認テスト項目
 - 初期表示
     - `Select a part of text above to get its span-url.`
 - 選択する
-    - 左側に、選択範囲の「開始位置-終了位置」が表示される
-    - 右側に、絶対パスのリンクが表示される
+    - 絶対パスのリンクが表示される
         - url/spans/1-10
         - urlが/で終わっていなかったら/が追加される
+    - リンクの後ろに`selected`が表示される
 - 右から左で選択する
     - URLができる
 - 全選択して、対象領域をクリック
