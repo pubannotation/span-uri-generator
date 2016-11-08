@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build": "browserify src/linkToSelectedSpan.js -t babelify -o jQuery.linkToSelectedSpan.js",
-    "lint": "jshint */*.js",
+    "lint": "jshint src/*.js test/*js",
     "open": "open sample.html",
     "test": "mocha --compilers js:babel/register",
     "watch": "watchify src/linkToSelectedSpan.js -t babelify -o jQuery.linkToSelectedSpan.js"
